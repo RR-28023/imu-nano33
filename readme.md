@@ -2,7 +2,7 @@
 
 (Areas de Aplicación del IoT - UIB - MUSI 2020-21)
 
-This repo demonstrates how to:
+This repo provides the code and configuration needed to:
  
  * **Connect** an Arduino Nano 33 to a MQTT broker (mosquitto) with TLS broker authentication
  * **Read** the Nano 33 IMU sensor values and publish them via MQTT 
@@ -12,7 +12,7 @@ This repo demonstrates how to:
     - *alltime*:  will publish IMU readings at the specified sample rate for as long as it is powered on
     - *ifmov*: will publish IMU readings at the specified sample rate only if movement is detected
     - *sleep*: won't publish IMU readings at all
- * The operating mode can be changed remotely by publishing an MQTT message on the topic `sensors\imu1\mode`, with the
+ * The operating mode can be changed **remotely** by publishing an MQTT message on the topic `sensors\imu1\mode`, with the
  payload being the name mode name (e.g. "alltime")
   
  ## Usage
@@ -27,13 +27,13 @@ This repo demonstrates how to:
   services on a virtual machine with a Raspbian OS (but note that the four services don't need to be on the same 
   server as they communicate to each other over the network).
   
-  The initial configuration section below assumes that you already have installed and set up the basic 
+  The initial configuration section below assumes that you have already installed and set up the basic 
   configuration for the four services mentioned above, and only provides details on the adjustments needed to make them work over TLS or for this specific 
   application.   
   
  ## Nano operating logic
  
- At the top of `imu_sensor.ino`  sketch the following parameters can be adjusted:
+ At the top of the `imu_sensor.ino`  sketch the following parameters can be adjusted:
  * `pubTopic`: topic where the IMU readings will be published
  * `subTopic`: topic where the Nano will subscribe to receive instructions
  * `threshold`: minimum gyroscope absolute value to consider that the Nano is moving, used when the Nano is 
@@ -48,8 +48,8 @@ This repo demonstrates how to:
  
  Some additional clarifications on the sketch logic:
  
-  * The IMU readings are published as a single string in the Influx format, that allows the Telegraf
-   to parse and load them directly into a measurements table
+  * The IMU readings are published as a single string in the Influx format, which allows the Telegraf
+   to parse and load them directly into a measurements table in the Influx database.
   
   * On *ifmove* mode, values are published during one second after the last value above 
   the movement threshold is measured. This is to ensure that all the information of a given movement is captured.
