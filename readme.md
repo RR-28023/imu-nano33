@@ -14,6 +14,10 @@ This repo provides the code and configuration needed to:
     - *sleep*: won't publish IMU readings at all
  * The operating mode can be changed **remotely** by publishing an MQTT message on the topic `sensors\imu1\mode`, with the
  payload being the name mode name (e.g. "alltime")
+ 
+ Screenshot of Grafana's dashboard
+ 
+ ![Grafana dashboard](./pictures/grafana_imudash.JPG)
   
  ## Usage
   
@@ -119,6 +123,8 @@ server's address in `credentials.h`):
  The only setting required in Grafana which is somewhat specific for this use case (apart from obviously creating the 
  dashboard with the IMU data charts), is to change the `min_refresh_interval` setting from the 
  default `5s` to `100ms` on `grafana.ini`. 
+ 
+ An exact dashboard like the one I built can be created by importing the JSON `grafana_dashboard` included in this repo.
  
 
  
