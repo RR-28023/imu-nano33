@@ -1,0 +1,10 @@
+user node
+topic write sensors/imu1/values
+
+user telegraf
+topic read sensors/imu1/values
+
+user mqttspy
+topic read sensors/imu1/#
+topic write sensors/imu1/mode
+

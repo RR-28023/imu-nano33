@@ -15,9 +15,9 @@ This repo provides the code and configuration needed to:
  * The operating mode can be changed **remotely** by publishing an MQTT message on the topic `sensors\imu1\mode`, with the
  payload being the name mode name (e.g. "alltime")
  
- Screenshot of Grafana's dashboard
+ Screenshot of Grafana's dashboard:
  
- ![Grafana dashboard](./pictures/grafana_imudash.JPG)
+ ![Grafana dashboard](assets/grafana_imudash.JPG)
   
  ## Usage
   
