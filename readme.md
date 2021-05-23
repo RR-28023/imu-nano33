@@ -98,7 +98,8 @@ server's address in `credentials.h`):
  Since we are doing broker authentication only (not the Nano), don't include the line `require_certificate true`. Otherwise the broker will 
  reject the connection. 
  
- The current configuration expects the Nano to also provide a username and password, hence the `allow_anonymous false`.
+ The current configuration expects the Nano to also provide a username and password, hence the `allow_anonymous false`. It 
+ also has an access control allowing only certain users to read and write on certain topics.
  
  ### Upload the root certificate to the Nano board
  
@@ -124,7 +125,7 @@ server's address in `credentials.h`):
  dashboard with the IMU data charts), is to change the `min_refresh_interval` setting from the 
  default `5s` to `100ms` on `grafana.ini`. 
  
- An exact dashboard like the one I built can be created by importing the JSON `grafana_dashboard` included in this repo.
+ An exact dashboard like the one I built can be created by importing the `grafana_dashboard.json` included in this repo.
  
 
  
