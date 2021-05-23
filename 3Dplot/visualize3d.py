@@ -6,6 +6,10 @@ import math
 USE_GYROSCOPE_DATA = False # If False it will use accelerometer data
 
 # Connect to InfluxDB
+'''
+This is done just to demonstrate how to read from an InfluxDB with a Python client, for lower latency it would be
+ better to subscribe to the mqtt broker where the IMU readings are published
+'''
 client = InfluxDBClient('[INFLUX SERVER]', 8086, username='[INFLUX USRNM]', password='[INFLUX PW]', database='[DATABASE NAME]')
 
 # Draw the Nano board volume
