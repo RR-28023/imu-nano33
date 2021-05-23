@@ -21,19 +21,17 @@ This repo provides the code and configuration needed to:
   
  ## Usage
   
-  To get it up and running simply update the parameters in `credentials.h` and upload the `imu_sensor.ino` sketch to the
-  Nano board (requires the `WiFiNINA`, `PubSubClient` and `Arduino_LSM6DS3` libraries). You can also edit the sketch 
-  to change some application parameters like the `sample_rate`. More detail is provided 
-  in the next section.
+  Update the parameters in `credentials.h` and upload the `imu_sensor.ino` sketch to your
+  Nano board (requires the `WiFiNINA`, `PubSubClient` and `Arduino_LSM6DS3` libraries). 
   
-  You also need properly configured instances of mosquitto (or any other mqtt broker), Telegraf, Influxdb and Grafana; 
+  You will need properly configured instances of mosquitto (or any other mqtt broker), Telegraf, Influxdb and Grafana; 
   running on a server connected to the Internet or to the Nano's local network. This repo was tested running the four 
-  services on a virtual machine with a Raspbian OS (but note that the four services don't need to be on the same 
-  server as they communicate to each other over the network).
+  services on a VM with a Raspbian OS**. The initial configuration section below assumes that 
+  you have already installed and set up the basic configuration for these services, and only provides details on
+  the adjustments needed to make them work over TLS or for this specific application.
   
-  The initial configuration section below assumes that you have already installed and set up the basic 
-  configuration for the four services mentioned above, and only provides details on the adjustments needed to make them work over TLS or for this specific 
-  application.   
+  **Note that the four services don't neccesarily have to be on the same server as they communicate to each 
+  other over the network.   
   
  ## Nano operating logic
  
